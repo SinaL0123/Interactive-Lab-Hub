@@ -105,6 +105,18 @@ For your masterwork, reconstruct the interaction as a scene:
 
 **Describe your setting, players, activity, and goals here.**
 
+**Setting:**
+A dim indoor gallery with a colorful animated flower projection covering a wall. 
+
+**Players:**
+The primary player is a curious gallery visitor exploring the projection. A friend and other visitors are present nearby. They observe the interaction, react to the changing light, and may become interested in participating.
+
+**Activity:**
+The player explores how distance, touch, and hand gestures affect the projected flowers. The light changes brightness and temperature accordingly, and this lead people respond further emotionally and physically.
+
+**Goals:**
+The player wants to discover how the projection responds to his body and gestures. 
+
 Now **sketch a 3 storyboards** of the interaction you are recreating. (The number may depend on the thing you drew, but stretch your thinking!) They
 don't need to be beautiful, but they must capture and communicate not only the behavior of the light, but how it affects
 and the people around it. If you're new to storyboarding, read
@@ -113,6 +125,17 @@ and the people around it. If you're new to storyboarding, read
 **Include pictures of your storyboards here.**
 
 Use the storyboards to decide what interaction to prototype.
+### Storyboard 1: Proximity
+
+<img width="2500" height="1934" alt="Storyboard 1: Proximity" src="https://github.com/user-attachments/assets/3af17a1c-78e6-4f7d-956d-dc1f306e6b6b" />
+
+### Storyboard 2: Tap
+
+<img width="2500" height="1934" alt="Storyboard 2: Tap" src="https://github.com/user-attachments/assets/e144bdf2-663b-4cca-aa09-893e5cabe994" />
+
+### Storyboard 3: Swing
+
+<img width="2500" height="1934" alt="Storyboard 3: Swing" src="https://github.com/user-attachments/assets/633f0327-4bd5-47f6-97e3-f0421bbf86b9" />
 
 **Summarize the feedback you got here.**
 
