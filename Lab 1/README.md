@@ -127,7 +127,37 @@ guess the masterwork and the goals of the characters, and ask about anything tha
 wasn't clear.
 
 **Who were the other groups you kibitzed with? Add links to their project pages here.**
+
+We exchanged feedback with three other groups over Slack:
+
+- [Group 1](https://github.com/JindiChai/Interactive-Lab-Hub/tree/Fall2026/Lab%201)
+- [Group 2](https://github.com/davidzhanggg/Interactive-Lab-Hub/tree/Fall2026/Lab%201)
+- [Group 3](https://github.com/Alexyen04/Alex-Yen-Interactive-Lab-Hub/tree/Fall2026/Lab%201)
+
 **Summarize the feedback you got from your partners here.**
+
+Feedback received:
+
+* Jindi Chai: I was very surprised after seeing your demo video. It looks really cool visually. I can understand the main functional interactions and visual changes you described in the previous storyboards from the demo video. For instance, when someone approaches the scene, the flowers' color turns warm, and the interaction effect between the hand and the flowers is also very clear. If you want to go further, you could add sounds or more interactive actions on the current foundation. Since this project now feels more like a piece of art, adding some emotional or practical functions could make it more interesting and unique.
+
+* David Zhang: Your masterwork can be clearly understood just by looking at the video and storyboards, where the projected flowers respond to the visitor's presence and gestures. The modifications made to the Tinkerbelle tool are amazing! They really make the experience super immersive and almost comparable to the real museum in Tokyo!
+
+   The different interactions were also easy to distinguish, specially the 'swing', where the flowers scatter away from the user's hand. It was visually satisfying to see. However, I wonder whether a visitor who is unfamiliar with the installation would immediately know that they can approach, tap, or swing the flowers. Maybe the flowers could provide some subtle visual cue that encourages the user to experiment with different gestures.
+
+   Another thing that would be interesting to explore is having multiple people interact with the projection at the same time. What would happen if two people touched of flicked the flowers in different places simultaneously? Would they affect each other?
+I was also wondering how the installation decides exactly where the user's hand is. If you were to implement the interaction without a wizard, how would you detect the position and gestures of the user's hand?
+
+   I also found the idea of the flowers continuing to move even when the user is not interacting really thoughtful. It shows that the environment exists independently from the user and makes the installation feel more alive
+
+* Alex Yen: The story board very clearly illustrates the interaction between the user and masterwork. The colors and panels show very vividly that when a user interacts with the flowers on display, they light up brightly. Both storyboard and video are very good representation of the masterwork and how it interacts with the user.
+
+***summary***
+
+All three groups were able to understand the concept and the main interactions from the demo video and storyboards alone.  The approach response (flowers turning warm) and the hand-to-flower effects read clearly, and the swing was singled out as the most satisfying moment to watch. The Tinkerbelle modifications were called out as what makes the projection feel close to the real museum, and one group specifically liked that the field keeps moving when nobody is interacting, because it makes the environment feel like it exists on its own.
+
+We also received several questions and suggestions that revealed directions for further development. First, would visitors who are unfamiliar with the installation naturally realize that they can approach, tap, or swing at the flowers? Subtle visual or sound cues could encourage them to explore these interactions. Second, we could consider multi-user interaction. For example, if two people touch or flick the flowers in different places at the same time, their effects might influence each other or create new patterns. In addition, without a wizard controlling the system, the installation would need a reliable way to detect the position of the user’s hand and distinguish between gestures such as tapping and swinging.
+
+The feedback also suggested adding sound or more interactive actions. Since the project currently feels primarily like an artistic experience, giving it a clearer emotional expression or practical purpose could make it more distinctive. Based on these suggestions, our next iteration could focus on making the interactions easier to discover, exploring multi-user behavior, and using visual and sound feedback to create a clearer emotional experience.
 
 ## Remix, Update, or Critique the Master
 
