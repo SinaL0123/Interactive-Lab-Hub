@@ -198,11 +198,12 @@ Credits for this part: the ambient track is "Uplifting Pad Texture" by samuelfjo
 
 ### Storyboards
 
-![storyboard: single touch and two touches](storyboard-touch.jpg)
+<img width="984" height="1024" alt="touch" src="https://github.com/user-attachments/assets/fd103697-133e-4668-a5d4-580aa64b0d13" />
 
 Single touch and two touches. Drawn by Shuning.
 
-![storyboard: single swing and two swings](storyboard-swing.jpg)
+
+<img width="980" height="1024" alt="swing" src="https://github.com/user-attachments/assets/a3f75a31-50fa-48e8-b056-807feed050e2" />
 
 Single swing and two swings. Drawn by Shuning.
 
