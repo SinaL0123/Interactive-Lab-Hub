@@ -180,6 +180,60 @@ your response engages with what your master was really doing.
 **Document everything here — especially the storyboard and video. Photos of the
 prototype are great too.**
 
+### Our remix
+
+We combined two of the three moves: we remixed the modality by adding sound, and we fixed a weakness we saw in our own Part 1 build, that touching the flowers changed nothing.
+
+Sound came first because the original has it. Borderless is not silent, and in Part 1 our wall was. Sound is also the cheapest way to pull a visitor further in, and it gave us an answer to one of the peer questions: with each gesture playing a note, two people touching the wall at once make a chord instead of two separate events.
+
+The second change came from looking at our own Part 1 build. Our flowers rippled when touched and drifted back home, and nothing about the field was different after someone left. That is not what the original does. In Borderless, touching a flower scatters it. So we made touch take the flower apart: the petals fly off and the spot stays empty. We first planned for a different flower to grow back in the empty spot. Shuning's storyboard had the petals gathering back into the same flower instead, and we built to the storyboard. The field still outlasts us, which is what Part 1 was about for us. Now it also shows that we were there.
+
+The peer questions about two people and about a visitor knowing they can interact both fed in. Two touch points, petal collisions and the flare wave are the two-people answer. The local approach, flowers gathering and twinkling near the person, is our answer to discoverability, and it is a change from Part 1, where approaching turned the whole wall warm.
+
+Now a touch takes the flower apart. When the visitor taps, swings a hand across the wall, or flicks, the flowers under the hand burst into their own petals and the petals drift and tumble across the field. After a while each petal flies back on its own and the same flower reassembles as its petals land. The field heals, but petal by petal, so a touch stays visible for a while. Two people can touch the wall at once: petals from different hands collide, bounce apart, and flash where they meet, and a flying petal that crosses a living flower makes it flare, with the flare passing to its neighbours, weaker each time, until it dies out. Approach is local now too. When someone walks up, only the flowers near them drift toward the spot, twinkle, and warm, and when they leave those flowers relax back.
+
+Every gesture also plays a sound: a tap, swing, or flick plucks a harp chord in a pentatonic scale, with its root chosen by where the hand is across the wall, low on the left and high on the right, and the notes ring long enough that two people at two places sound as a chord. Underneath sits an ambient bed. The field has a life of its own as well. Each flower buds, blooms, withers, and is replaced by a new flower in the same place, so the wall keeps changing when nobody is there, and there are three seasons, cherry, summer, and autumn, each with its own palette; a season change sweeps across the wall from one point. Two things from the feedback we did not address: the hand is still located by a person at the keyboard, and the piece still reads as art rather than gaining an emotional or practical function.
+
+Credits for this part: the ambient track is "Uplifting Pad Texture" by samuelfjohanns, from Pixabay, used under the Pixabay Content License. The petal and centre artwork was drawn in Claude Design. The code changes to the Tinkerbelle fork were made with Claude Code.
+
+### Storyboards
+
+![storyboard: single touch and two touches](storyboard-touch.jpg)
+
+Single touch and two touches. Drawn by Shuning.
+
+![storyboard: single swing and two swings](storyboard-swing.jpg)
+
+Single swing and two swings. Drawn by Shuning.
+
+### Video
+
+https://youtu.be/GmXsl4PS20c
+
+We lost access to the projector after Part 1, so Part 2 is documented with a scripted screen recording with captions; the Part 1 video above shows the staging on the wall.
+
+### Photos
+
+![two touches at once, petals colliding](images/take-lights-0m59-1x.png)
+
+Two touches at once: the two clouds of petals meet in the middle (the take at 0:59).
+
+![two swings toward the centre](images/take-lights-2m24-1x.png)
+
+Two swings toward the centre, in summer (the take at 2:24).
+
+![the field in the autumn season](images/season-autumn-1x.png)
+
+The field in the autumn season, nobody interacting.
+
+## Reflection
+
+The second round made us realize that we spent most of Part 1 trying to make the project look like teamLab. In Part 2, we started thinking more about what we personally wanted to change. The feedback from other groups helped because they asked questions we had not really considered, especially what could happen if two people interacted at the same time and how visitors would know what they could do. Even though our responses were still pre-programmed and manually triggered, thinking through these questions helped us imagine the project as a shared interaction instead of only a visual effect.
+
+We also learned that it is easy to keep adding features once an idea starts working. We added sound, seasons, flower life cycles, petal collisions, and several types of gestures. Some of these made the demonstration feel more alive, but together they also made the prototype harder to control and explain. If we worked on it again, we would probably focus on fewer interactions and develop them more fully. Most importantly, we would connect the visual effects to a camera or sensor so that the system could detect a visitor’s position and gestures instead of relying on a person at the keyboard or a scripted recording.
+
+The biggest thing we could not test was how the remix would feel as a real installation. Since we no longer had the projector, we had to document it through a scripted screen recording. The video shows our idea for how the flowers could respond, but it does not prove that someone standing in front of the wall would notice the responses or understand that they could interact. Our next step would be to add real-time tracking, project it at full scale, and let people try it without instructions. That would help us see which parts of the interaction are actually clear and which ones only seem clear because we already know how the system is supposed to work.
+
 ---
 
 
