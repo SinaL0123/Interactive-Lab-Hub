@@ -1,5 +1,5 @@
 # Interactive Prototyping: The Clock of Pi
-**NAMES OF COLLABORATORS HERE**
+**NAMES OF COLLABORATORS HERE** Sina Liu, Giorgi Samushia
 
 Does it feel like time is moving strangely during this semester?
 
@@ -157,6 +157,12 @@ You can look in `screen_boot_script.py` for how to display text on the screen!
 You can look in `image.py` for an example of how to display an image on the screen. Can you make it switch to another image when you push one of the buttons?
 
 \*\*\***Include a picture of your own Raspberry Pi displaying the piscreen.service with your unique MAC address. Additionally, please provide another picture showing the successful completion of the screen test.**\*\*\*
+<p align="center">
+  <img width="45%" alt="IMG_9515" src="https://github.com/user-attachments/assets/28346863-915e-4630-87d1-cceb3c03ec78" />
+  <img width="45%" alt="IMG_9517" src="https://github.com/user-attachments/assets/cc865327-35ee-4578-b65e-fafc7d6c7ae3" />
+</p>
+
+
 
 
 ## Part D. 
@@ -194,6 +200,20 @@ We strongly discourage literal digital or analog clock display: Be creative.
 
 ** Insert ideas, sketches, [Verplank diagrams](https://ccrma.stanford.edu/courses/250a-fall-2004/IDSketchbok.pdf)), storyboards for your ideas **
 
+***1.Candle Clock***
+### Candle Clock (Sina)
+
+My idea is to create a candle clock that represents time through candles burning. I chose candles because burning and melting show the passage of time in a natural way. On the default screen, there will be twelve candles, and each candle represents two hours. Past candles are melted, the current candle is burning, and future candles are still unlit.
+
+The two buttons allow the user to see different information. Pressing A shows a zoom-in view of the current candle. Pressing B opens the focus page, and holding B starts or ends a focus session. The focus timer will continue running even when the user switches to another screen. A small blue flame will indicate that focus mode is active. Pressing A and B together opens a memory page where each completed focus session becomes a wax seal. One seal represents one session, and its size represents the duration.
+
+I first thought about using the melted wax to create a different image each day, which led me to the idea of using wax seals as records of focused time. I am still not sure how detailed the candle animation and wax seals can be on the small Raspberry Pi screen, or how much information can fit clearly. I may need to simplify the graphics after testing the display and buttons.
+
+Sketch:
+<img width="2500" height="1904" alt="sketch" src="https://github.com/user-attachments/assets/53585817-603c-4384-b80f-b8949adfc4c7" />
+
+Verplank Diagram:
+<img width="2497" height="1619" alt="IMG_6309" src="https://github.com/user-attachments/assets/4b97eaec-4750-4460-8cd5-f773318ee354" />
 
 
 **Put the names of the people you gave feedback to here. (Even better, add links to their repos here!)**
