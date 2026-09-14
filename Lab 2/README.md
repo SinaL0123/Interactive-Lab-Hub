@@ -231,6 +231,11 @@ I am in New York, my family is in Tbilisi, my sister is in Berlin, and a friend 
 <img width="1225" height="1284" alt="9a4688aa-760b-40ab-ad22-622312ea866e" src="https://github.com/user-attachments/assets/e40f203c-f1b1-46e8-bf83-3577210bae02" />
 
 **Put the names of the people you gave feedback to here. (Even better, add links to their repos here!)**
+* David Zhang: https://github.com/davidzhanggg/Interactive-Lab-Hub/tree/Fall2026/Lab%202
+
+* Jindi Chai: https://github.com/JindiChai/Interactive-Lab-Hub/blob/Fall2026/Lab%202
+
+* Amy Gao: https://github.com/zg375/Interactive-Lab-Hub/tree/86dc14dd4b592afbeb4f4187617a6ae88da5ad3f/Lab%202
 
 # Lab 2 Part 2
 
@@ -239,7 +244,31 @@ I am in New York, my family is in Tbilisi, my sister is in Berlin, and a friend 
 1. Pick up remaining parts for kit on Wednesday lab class. Check the updated [parts list inventory](partslist.md) and let the TA know if there is any part missing.
 
 2. Look at and give feedback on the Part E. for at least 3 other people in the class and get 3 people to comment on your Part E!)
+
 **Put the feedback for your ideas here.**
+
+***David:*** I like the concept of using candles to represent the times. The storyboard is very visually appealing and provides alot of helpful information. The colors and highlights allow readers to easily figure out what is happening in the interaction. One improvement that could be worked on is maybe more explanation on the wax seals. The wax seals size representing how long the study session / focus is very vague and doesn’t tell much information. It would be helpful to know how much represents what, maybe with colors instead. For the two ideas, I personally more into the first one because is more related to the clock idea, the other is more complex and cool but looks more like a communication tool.
+
+***Jindi:*** Candle Clock
+
+I really like how you use burning and melting candles as a metaphor for the passage of time. I also think the focus mode is very useful. Using visual elements like wax seals instead of just text to record focus sessions makes it easier for users to see their progress, and I think it can also give them a stronger sense of accomplishment.
+
+One small question I have is about the screen display. Since one candle represents two hours, there will be 12 candles on the screen. Would they be too small or make the screen feel crowded? Also, when there are more and more wax seals and they no longer fit on one screen, how would they be displayed? Would they be organized by time period, or could users switch between pages?
+
+Who Can I Call Clock
+
+I think this project does a really nice job of combining time zones, family, and communication. It is very practical, but also has a warm and personal feeling, which reminds me of my own family and friends. Because we are in different time zones, they sometimes hesitate to call me because they don't know if I'm sleeping or in class. If everyone had a similar "clock," I think it could help a lot with this problem.
+
+I also like the use of bars and different colors to show people's status and whether they are available to call. Being able to call someone directly with a button is also very convenient because you don't need to spend time finding them in your contacts.
+One thing I'm curious about is how the different time blocks are decided. How do we know when it is a "good time to call" for each person? If someone is awake but is working or in class, would that also be reflected on the display? Also, would users manually set their usual available times, or could the clock get this information automatically from their calendar or other sources?
+
+***Amy:*** I really like how the candle metaphor extends into the wax seals for focus memories. My main suggestion would be to test whether the different button controls are easy to remember, since A, B, holding B, and A+B all have different functions. Simplifying some of the interactions might make the overall experience more intuitive.
+
+***Summary:***
+
+Overall, the feedback was positive, especially toward the Candle Clock concept. My classmates liked the visual metaphor of candles burning and melting to represent the passage of time. They also thought that using wax seals to record focus sessions could provide users with a stronger sense of progress and accomplishment. However, the meaning of the wax seals needs to be clearer, especially how their sizes or colors represent different focus durations. I should also consider whether displaying 12 candles would make the screen feel crowded and how additional wax seals could be organized when there are too many to fit on one screen. Another important suggestion was to simplify the button controls because the different combinations may be difficult for users to remember. 
+
+Although the Who Can I Call Clock was considered practical and emotionally meaningful, the rules for determining someone’s availability need more explanation. In general, the feedback suggests that I should continue developing the Candle Clock while making its information display and interactions clearer and more intuitive.
 
 ## Update your Lab Hub
 
