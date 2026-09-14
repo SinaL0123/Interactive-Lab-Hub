@@ -189,6 +189,10 @@ Option 3. A nowadays often preferred method is to use Microsoft [VS code to remo
 
 Pro Tip: Using tools like [code-server](https://coder.com/docs/code-server/latest) you can even setup a VS Code coding environment hosted on your raspberry pi and code through a web browser on your tablet or smartphone! 
 
+<p align="center">
+  <img width="500" alt="IMG_9506" src="https://github.com/user-attachments/assets/354b1aef-74cb-4b33-b928-065340e6abab" />
+</p>
+
 ## Part E. Read Part 2. Sketch and brainstorm further interactions and features you would like for your clock.
 
 One potential source of ideas might be thinking about other clocks and timekeeping devices for inspiration.
