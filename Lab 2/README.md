@@ -200,8 +200,9 @@ We strongly discourage literal digital or analog clock display: Be creative.
 
 ** Insert ideas, sketches, [Verplank diagrams](https://ccrma.stanford.edu/courses/250a-fall-2004/IDSketchbok.pdf)), storyboards for your ideas **
 
-***1.Candle Clock***
-### Candle Clock (Sina)
+For now, we have two ideas. We will decide which one to develop after gathering feedback and experimenting with our Raspberry Pi.
+
+### 1. Candle Clock (Sina)
 
 My idea is to create a candle clock that represents time through candles burning. I chose candles because burning and melting show the passage of time in a natural way. On the default screen, there will be twelve candles, and each candle represents two hours. Past candles are melted, the current candle is burning, and future candles are still unlit.
 
@@ -209,12 +210,21 @@ The two buttons allow the user to see different information. Pressing A shows a 
 
 I first thought about using the melted wax to create a different image each day, which led me to the idea of using wax seals as records of focused time. I am still not sure how detailed the candle animation and wax seals can be on the small Raspberry Pi screen, or how much information can fit clearly. I may need to simplify the graphics after testing the display and buttons.
 
-Sketch:
+***Sketch:***
 <img width="2500" height="1904" alt="sketch" src="https://github.com/user-attachments/assets/53585817-603c-4384-b80f-b8949adfc4c7" />
 
-Verplank Diagram:
+***Verplank Diagram:***
 <img width="2497" height="1619" alt="IMG_6309" src="https://github.com/user-attachments/assets/4b97eaec-4750-4460-8cd5-f773318ee354" />
 
+### 2. Who Can I Call Clock (Giorgi)
+
+I am in New York, my family is in Tbilisi, my sister is in Berlin, and a friend is in Madrid. Instead of four separate clocks, the PiTFT shows four horizontal bars, one per person, each a 24-hour strip that runs dark where they are asleep and green where it is a fine time to call, with amber at the edges in between, a black tick mark for the current time, and their local time written beside the bar. One bar is highlighted at any moment. Button B cycles the highlighted person forward through the four. Button A calls whoever is highlighted, sending a notification to my phone that places the call. If I press A while that person is in their dark zone, the screen does not just call, it asks first, something like "3:40 AM in Tbilisi. Call anyway?", and a second press of A goes through while B cancels back to the normal view. The Qwiic buttons' own LEDs double as a quick status check, green when the highlighted person is callable, red when they are not, so I do not even need to read the screen to know. Berlin and Madrid happen to share a timezone, which is part of the point, the unit here is people, not hours. Parts: the PiTFT, both Qwiic buttons, and my phone for the call step.
+
+***Sketch***
+<img width="1536" height="1024" alt="b50cd019-6e65-4d38-9837-9c267f059497 (1)" src="https://github.com/user-attachments/assets/6ee186a6-2fb8-4e2c-bb55-7f81a5f3bc26" />
+
+***Verplank Diagram***
+<img width="1225" height="1284" alt="9a4688aa-760b-40ab-ad22-622312ea866e" src="https://github.com/user-attachments/assets/e40f203c-f1b1-46e8-bf83-3577210bae02" />
 
 **Put the names of the people you gave feedback to here. (Even better, add links to their repos here!)**
 
