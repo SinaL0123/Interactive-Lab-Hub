@@ -35,12 +35,10 @@ buttonB.switch_to_input(pull=digitalio.Pull.UP)
 WAX_COLORS = [
     (227, 143, 157),  # pink
     (234, 164, 111),  # apricot
-    (157, 181, 139),  # sage
-    (178, 157, 196),  # lavender
     (154, 192, 224),  # sky blue star
     (238, 206, 125),  # yellow daisy
     (135, 188, 177),  # mint bow
-    (172, 91, 111),   # berry moon
+    (184, 144, 214),  # purple moon
 ]
 sessions_file = Path(__file__).with_name("focus_sessions.json")
 try:
@@ -54,11 +52,11 @@ except (FileNotFoundError, json.JSONDecodeError):
 sessions = []
 for item in saved_sessions:
     if isinstance(item, (int, float)):
-        sessions.append({"duration": float(item), "color": list(random.choice(WAX_COLORS))})
+        sessions.append({"duration": float(item), "color": list(WAX_COLORS[len(sessions) % len(WAX_COLORS)])})
     elif isinstance(item, dict) and isinstance(item.get("duration"), (int, float)):
         color = item.get("color")
         if not isinstance(color, list) or len(color) != 3:
-            color = list(random.choice(WAX_COLORS))
+            color = list(WAX_COLORS[len(sessions) % len(WAX_COLORS)])
         sessions.append({"duration": float(item["duration"]), "color": color})
 if sessions != saved_sessions:
     sessions_file.write_text(json.dumps(sessions, indent=2))
@@ -110,7 +108,7 @@ def split_stickers(filename):
     return pieces
 
 CANDLES = split_stickers("candle_sheet_journal.png")
-SEALS = split_stickers("seal_sheet_journal.png") + split_stickers("seal_sheet_extra_journal.png")
+SEALS = split_stickers("seal_sheet_journal.png")[:2] + split_stickers("seal_sheet_extra_journal.png")
 TABLE_OVERLAY = Image.open(Path(__file__).with_name("journal_table_overlay.png")).convert("RGBA")
 room_sheet = Image.open(Path(__file__).with_name("room_backgrounds_journal.jpg")).convert("RGB")
 ROOM_BACKGROUNDS = []
@@ -205,7 +203,7 @@ while True:
                         duration = max(0, now - focus_started_at)
                         sessions.append({
                             "duration": round(duration, 1),
-                            "color": list(random.choice(WAX_COLORS)),
+                            "color": list(WAX_COLORS[len(sessions) % len(WAX_COLORS)]),
                         })
                         sessions_file.write_text(json.dumps(sessions, indent=2))
                         focus_started_at = None
