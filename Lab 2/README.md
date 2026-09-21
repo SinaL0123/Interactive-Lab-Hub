@@ -284,6 +284,9 @@ Start small, pick just one element of your overall idea, just to show you have a
 
 \*\*\***Take a video of your barely modified PiClock.**\*\*\*
 
+https://github.com/user-attachments/assets/8c53e7c5-fc85-449e-850d-90bd4f4435c7
+
+
 After you edit and work on the scripts for Lab 2, the files should be upload back to your own GitHub repo! You can push to your personal github repo by adding the files here, commiting and pushing.
 
 ```
@@ -305,6 +308,23 @@ Do take advantage of having done the previous iteration to refine and simplify y
 
 \*\*\***Take a video of your PiClock.**\*\*\*
 
+**Candle Clock**
+
+https://youtube.com/shorts/4OHFGQ53504?feature=share
+
+Building on my Part E concept and peer feedback, the default screen displays twelve candles, with each candle representing two hours of the day. Past candles appear melted, the current candle burns down in six stages—one stage every twenty minutes—and future candles remain unlit. I tested the layout on the Pi’s small screen and arranged the twelve candles in a single row so that the display remains readable without feeling too crowded. The background changes between daytime and nighttime and can also switch between study-room and bedroom scenes.
+
+Button B opens the Focus page, while holding B starts or ends a focus session. The timer continues running when the user returns to the default page, where a small blue flame shows that Focus Mode is active. Pressing A+B opens the Focus Memory page. In response to feedback that the meaning of the wax seals was unclear, each completed session becomes a wax seal whose size represents its duration: longer sessions create larger seals. The seals also use six distinct colors and center designs—heart, sun, star, flower, bow, and moon—to make the records easier to distinguish. Following feedback about limited screen space, the page displays only the six most recent seals. Short instructions are shown on the screen to make the different button interactions easier to remember.
+
+I used AI (ChatGPT/Codex) to help implement this project, including developing and debugging the Python display and button logic, saving focus-session data, and creating and refining the Korean stationery-style visual assets. AI also helped implement the animated flame, candle-burning stages, focus indicator, completion popup, and Focus Memory layout. The central interaction concept—including candles as a representation of time, the focus timer, the blue focus indicator, and wax seals as records of completed sessions—came from my own Part E proposal and storyboard. Peer feedback helped me refine the candle layout, clarify what seal size represents, limit the number of visible seals, and make the button controls easier to understand.
+
+**Who Can I Call Clock (By Giorgi)**
+
+My lab partner is Giorgi Samushia, whose own Lab Hub for the Who Can I Call Clock is [here](https://github.com/umasshia/Interactive-Lab-Hub/tree/Fall2026/Lab%202). You can find more details (including the video) of the clock in his repo.
+
+Here is a brief description: From the Part E concept: four horizontal 24-hour bars (one per contact), green/amber/dark to show whether it's a good time to call, a white tick for their current local time via `zoneinfo` (handles DST automatically). Button B cycles the highlighted contact; button A calls them if they're in the green window, or opens a confirm prompt first if not. Calling is a real bridged phone call (Twilio Voice: it dials the contact, and once they pick up, dials my own phone and connects us) rather than a simulated/on-screen-only call.
+
+I used AI (Claude) to help implement this: setting up the Twilio Voice integration (including working through several Twilio account/trial restrictions), the `zoneinfo`-based timezone bar logic, and the button-press state machine (cycle/confirm/call). The interaction design itself (bars-per-contact, confirm-before-disturbing, button roles) is from my own Part E writeup above.
 
 As always, make sure you document contributions and ideas from others (and AI) explicitly in your writeup.
 
