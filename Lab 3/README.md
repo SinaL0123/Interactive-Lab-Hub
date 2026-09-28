@@ -137,15 +137,19 @@ Available sizes, smallest first: `tiny.en`, `base.en`, `small.en`, `medium.en`. 
 
 \*\***Record a few seconds of your own speech (`arecord -d 5 -f cd -c 1 -r 16000 test.wav`) and transcribe it with at least two model sizes. Report the real-time factor for each. At what point does the accuracy improvement stop being worth the delay, for a system that has to answer you?**\*\*
 
+I recorded a five-second clip saying, “Test, test, this is your test.”
 
+- `tiny.en` transcribed it as “test test, visit your test.” The transcription took 1.23 seconds, with a real-time factor of 0.25x.
+  
+- `base.en` transcribed it as “Test, test, this is your test.” The transcription took 2.11 seconds, with a real-time factor of 0.42x.
 
-I recorded a five-second clip saying, “Hi, I have a cat.” All three models transcribed it correctly. Tiny.en had a real-time factor of 0.19, base.en had an RTF of 0.36, and small.en had an RTF of 1.08. The larger models did not improve the accuracy for this recording. For a conversational system, I would choose tiny.en because it produced the same correct result with the shortest delay. The accuracy improvement stopped being worth the delay before base.en for this clear, simple recording.
+The `base.en` model was more accurate, but it took longer to respond. For a system that needs quick conversational responses, I would use `tiny.en`. For important information such as numbers or names, I would use `base.en` or ask the user to confirm the transcription.
 
 \*\***Write your own script that verbally asks for a numerical input (a phone number, zipcode, number of pets) and records the answer the respondent provides.**\*\* Numbers are a good stress test — transcription systems make characteristic errors on digit strings, and you will want to know what they are before you design around them.
 
+I created `number_question.sh`, which asks, “What is your favorite number? Please say one number,” records a six-second response, and transcribes it with the `base.en` model.
 
-
-My script verbally asked for a five-digit ZIP code and recorded the answer. I said “one zero four four,” and tiny.en correctly transcribed it as “1 0 4 4” with an RTF of 0.17. Although the transcription was correct, the response contained only four digits. A real system should validate the number of digits, read the result back, and ask the user to confirm or repeat invalid input.
+During my test, I answered “twenty-four,” and the system correctly transcribed it as `24`. Numbers are still a useful stress test because a single recognition error can change the meaning of an answer. In a complete system, I would repeat the recognized number back to the user and ask for confirmation.
 
 ## C. Turn-taking: knowing when someone has stopped talking
 
