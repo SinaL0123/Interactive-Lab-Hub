@@ -2,7 +2,10 @@
 
 **NAMES OF COLLABORATORS HERE**
 
-[![Watch the video](https://user-images.githubusercontent.com/1128669/135009222-111fe522-e6ba-46ad-b6dc-d1633d21129c.png)](https://www.youtube.com/embed/Q8FWzLMobx0?start=19)
+
+Yilin Wu, Sina Liu & Jindi Chai
+
+[![Watch the video](https://user-images.githubusercontent.com/1128669/135009222-111fe522-e6ba-46ad-b6dc-d1633d21129c.png)](https://youtu.be/LZ0VJClIlRI?si=Yy84mcyVYuVV19mn)
 
 In this lab, we want you to design interaction with a speech-enabled device — something that listens and talks to you. This device can do anything *but* control lights (since we already did that in Lab 1). First, we want you to storyboard what you imagine the conversational interaction to be like. Then you will use wizarding techniques to elicit examples of what people might say, ask, or respond. We then want you to use the examples collected from at least two other people to inform the redesign of the device.
 
@@ -111,6 +114,9 @@ The demo script also shows `--output-raw`, which streams audio to the speaker as
 
 \*\***Then answer: Is the same greeting, in these different voices, the same greeting? Describe one concrete way the voice changed what the utterance seemed to mean or who seemed to be speaking.**\*\*
 
+
+No, the same greeting did not feel exactly the same in different voices. In eSpeak, the robotic tone made the greeting sound like a machine reporting its status. In Piper, the smoother rhythm and more natural pronunciation made the greeting feel warmer and more personal, as if a friendly assistant were speaking to me.
+
 ## B. Speech to Text
 
 We use [faster-whisper](https://github.com/SYSTRAN/faster-whisper), a reimplementation of OpenAI's Whisper model that runs several times faster on CPU and does not require PyTorch. All processing happens on the Pi; nothing is sent to a server.
@@ -131,7 +137,15 @@ Available sizes, smallest first: `tiny.en`, `base.en`, `small.en`, `medium.en`. 
 
 \*\***Record a few seconds of your own speech (`arecord -d 5 -f cd -c 1 -r 16000 test.wav`) and transcribe it with at least two model sizes. Report the real-time factor for each. At what point does the accuracy improvement stop being worth the delay, for a system that has to answer you?**\*\*
 
+
+
+I recorded a five-second clip saying, “Hi, I have a cat.” All three models transcribed it correctly. Tiny.en had a real-time factor of 0.19, base.en had an RTF of 0.36, and small.en had an RTF of 1.08. The larger models did not improve the accuracy for this recording. For a conversational system, I would choose tiny.en because it produced the same correct result with the shortest delay. The accuracy improvement stopped being worth the delay before base.en for this clear, simple recording.
+
 \*\***Write your own script that verbally asks for a numerical input (a phone number, zipcode, number of pets) and records the answer the respondent provides.**\*\* Numbers are a good stress test — transcription systems make characteristic errors on digit strings, and you will want to know what they are before you design around them.
+
+
+
+My script verbally asked for a five-digit ZIP code and recorded the answer. I said “one zero four four,” and tiny.en correctly transcribed it as “1 0 4 4” with an RTF of 0.17. Although the transcription was correct, the response contained only four digits. A real system should validate the number of digits, read the result back, and ask the user to confirm or repeat invalid input.
 
 ## C. Turn-taking: knowing when someone has stopped talking
 
@@ -155,6 +169,11 @@ Speak, pause, and watch it transcribe. Now change the endpointing threshold — 
 
 There is no correct value. A system that takes drink orders and a system that listens to someone think out loud want very different thresholds, and the right one depends on what your users are doing with their pauses.
 
+
+
+At a 0.2-second silence threshold, my sentence was split into several short utterances. Normal pauses between phrases were treated as the end of my turn, and the short fragments also reduced transcription accuracy because Whisper had less context. At 0.7 seconds, the result improved, but my speech was still divided into multiple pieces, so this threshold was still too short for my speaking pace. At 1.5 seconds, the complete short phrase stayed together, but the pause after I finished made the system feel hesitant and slow. A value around 1.0 second would probably be a better compromise for my speaking style.
+The complete echo loop correctly heard “There is a cat” and replied, “You said: There is a cat.” Speech recognition took 5.24 seconds, while Piper produced its first audio in 0.22 seconds. The total gap was 5.45 seconds, so the recognition delay, rather than speech synthesis, had the largest effect on responsiveness.
+
 ### The complete loop
 
 `echo_bot.py` puts the pieces together: it listens, endpoints, transcribes, and speaks a reply through Piper. The dialogue policy is deliberately trivial — it repeats what you said — so that everything you notice is a property of the timing rather than the content.
@@ -171,16 +190,61 @@ Storyboard and/or use a Verplank diagram to design a speech-enabled device. (Stu
 
 Write out what you imagine the dialogue to be. Use cards, post-its, or whatever method helps you develop alternatives or group responses.
 
+
+
+<img width="1079" height="491" alt="截屏2026-09-27 05 53 29" src="https://github.com/user-attachments/assets/cc4f0795-5751-4a14-8266-b246f403a8a1" />
+
+
 \*\***Please describe and document your process.**\*\*
 
 Your script should include the pauses. Where does your device wait, and for how long? You now know from Part C that this is a parameter you have to choose, not something that happens for free.
 
+
+
+### Process and Dialogue Timing
+
+Our design is a voice-controlled cooking assistant that helps users follow a recipe while their hands are dirty or occupied. Our storyboard follows a cooking session from preparing ingredients to finishing the meal. It includes requests to repeat instructions, a missing ingredient, and correction of a misheard timer duration. We also recorded a video demonstration of the interaction.
+
+The assistant gives one instruction at a time. After asking the user to chop an onion, it waits 20 seconds before asking, “Ready for the next step?” If the user replies, “Wait, I’m still cutting,” it says, “No problem. Let me know when you’re ready.” It then waits for the user to say “Next,” without a fixed deadline. This allows the user’s cooking pace to determine when the recipe advances.
+
+Our dialogue also supports recovery. In a noisy kitchen, “Repeat that” makes the assistant repeat its previous instruction. When the user says, “I don’t have olive oil,” the assistant suggests vegetable oil and asks whether the user wants to continue. In the timer scene, the assistant mishears “five minutes” as “nine minutes.” The user corrects it, and the assistant acknowledges the correction.
+
+### Pauses in Our Script
+
+- **After a spoken command:** Our proposed endpointing threshold is 1.0 second of silence before processing the response. This applies to commands such as “Next,” “Repeat that,” and “No, five minutes.”
+- **During food preparation:** The assistant waits 20 seconds before its initial progress check.
+- **After “Wait, I’m still cutting”:** It waits until the user says “Next.” Silence does not mean that the cooking step is complete.
+- **After a confirmation question:** We would allow 5 seconds for the user to begin answering. If there is no response, the assistant would repeat the question once and then wait quietly. Once speech begins, the endpointing threshold determines when the answer ends.
+- **During the timer:** Once the duration is corrected to five minutes, the timer should count five minutes and then announce completion. The assistant should not assume that the entire meal is finished simply because the timer has ended.
+
+### How Part C Informed Our Design
+
+In our tests, a 0.2-second silence threshold split speech into short fragments. At 0.7 seconds, speech was still divided into several segments. The 1.5-second setting allowed a short phrase to remain together but introduced a longer wait before processing. These trials used different utterances, so they do not establish a single best threshold. We would start testing our cooking assistant at 1.0 second and adjust it using the same sentences under realistic kitchen conditions.
+
+Intentional pauses are separate from processing delays. Our echo-bot test reported 5.24 seconds for speech recognition, 0.22 seconds to the first synthesized audio, and a total gap of 5.45 seconds. Choosing a silence threshold therefore does not guarantee an equally fast reply.
+
+A further improvement would be to confirm the timer duration before starting it: “I heard five minutes. Is that correct?” This would give the user an opportunity to correct a number before the device acts.
 ## E. Acting out the dialogue
 
 Find a partner, and *without sharing the script with your partner* try out the dialogue you've designed, where you (as the device designer) act as the device you are designing. Please record this interaction (for example, using Zoom's record feature).
 
+
+
+
+
+https://github.com/user-attachments/assets/4f0f1b2c-1139-441b-b8b0-98213bad8c52
+
 \*\***Describe if the dialogue seemed different than what you imagined when it was acted out, and how.**\*\*
 
+
+
+Acting out the dialogue made us realize that the cooking assistant needed to follow the user’s pace rather than the timing we imagined in our storyboard. We had planned a progress check after 20 seconds, but that did not necessarily mean the user would be ready. The exchange “Wait, I’m still cutting” showed why the assistant should wait for an explicit “Next” instead of automatically continuing.
+
+The interaction also felt less linear than the written script. Requests such as “Repeat that” and “I don’t have olive oil” interrupted the recipe instructions. These exchanges highlighted the need to remember the current step and return to it after answering the user.
+
+The timer correction revealed another weakness. When the assistant interpreted “five minutes” as “nine minutes,” the user had to correct it. We would revise this interaction so that the assistant confirms the duration before starting the timer.
+
+Overall, acting out the dialogue shifted our attention from what the assistant says to when it speaks, when it stays quiet, and how it handles corrections. Our next version would give the user more control over the pace and make confirmation of numerical inputs explicit.
 
 ---
 
