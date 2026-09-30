@@ -171,12 +171,13 @@ Speak, pause, and watch it transcribe. Now change the endpointing threshold — 
 
 \*\***Try both extremes, and something in between. Describe what each one feels like to talk to. Note specifically: at 0.2s, what kinds of normal speech get cut off? At 1.5s, what does the delay make the system seem like?**\*\*
 
-There is no correct value. A system that takes drink orders and a system that listens to someone think out loud want very different thresholds, and the right one depends on what your users are doing with their pauses.
+I tested three silence thresholds using the sentence, “I would like ... a cup of coffee.”
 
-
-
-At a 0.2-second silence threshold, my sentence was split into several short utterances. Normal pauses between phrases were treated as the end of my turn, and the short fragments also reduced transcription accuracy because Whisper had less context. At 0.7 seconds, the result improved, but my speech was still divided into multiple pieces, so this threshold was still too short for my speaking pace. At 1.5 seconds, the complete short phrase stayed together, but the pause after I finished made the system feel hesitant and slow. A value around 1.0 second would probably be a better compromise for my speaking style.
-The complete echo loop correctly heard “There is a cat” and replied, “You said: There is a cat.” Speech recognition took 5.24 seconds, while Piper produced its first audio in 0.22 seconds. The total gap was 5.45 seconds, so the recognition delay, rather than speech synthesis, had the largest effect on responsiveness.
+| Silence threshold | What happened | How it felt |
+|---|---|---|
+| `0.2` seconds | The system often ended my turn during normal pauses. It split one sentence into fragments such as “I would like” and “a cup of coffee.” | It felt impatient and interrupted me. |
+| `0.7` seconds | Continuous speech was usually transcribed as a complete sentence, but pauses longer than about 0.7 seconds could still split the speech. | It felt relatively responsive, but slightly unforgiving of thinking pauses. |
+| `1.5` seconds | The system was more tolerant of pauses and usually kept the full sentence together. | It felt slower because it waited longer before responding. |
 
 ### The complete loop
 
@@ -232,6 +233,7 @@ A further improvement would be to confirm the timer duration before starting it:
 
 Find a partner, and *without sharing the script with your partner* try out the dialogue you've designed, where you (as the device designer) act as the device you are designing. Please record this interaction (for example, using Zoom's record feature).
 
+Youtube link: https://youtu.be/s8K_N4ap6eY
 
 
 
