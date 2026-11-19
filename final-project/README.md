@@ -3,7 +3,8 @@
 A two-player cooperative puzzle game with a browser-based virtual environment and physical inputs. This folder currently archives the hardware input proof of concept, rather than the finished game.
 
 Course brief: [FinalProject.md](../FinalProject.md)  
-Project plan: [Google Doc](https://docs.google.com/document/d/1PFp_F4K3la4clmsv9ACkXorqtDHbX2RVgfYLTaRujgQ/edit)
+Updated project plan: [PLAN.md](PLAN.md)  
+Original plan: [Google Doc](https://docs.google.com/document/d/1PFp_F4K3la4clmsv9ACkXorqtDHbX2RVgfYLTaRujgQ/edit)
 
 ## Current progress
 
