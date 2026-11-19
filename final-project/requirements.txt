@@ -1,0 +1,7 @@
+Adafruit-Blinka
+adafruit-circuitpython-seesaw
+sparkfun-qwiic-button
+sparkfun-qwiic-joystick
+adafruit-circuitpython-vcnl4040
+websockets>=14
+

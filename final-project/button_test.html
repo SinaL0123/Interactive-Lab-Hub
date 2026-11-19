@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta charset="UTF-8">
+<title>Hardware Input Test</title>
+<body style="font-family:sans-serif;max-width:700px;margin:60px auto;padding:20px">
+  <h1>Raspberry Pi Hardware Input Test</h1>
+  <input id="ip" placeholder="Raspberry Pi IP address">
+  <button onclick="connect()">Connect</button>
+  <p id="status">Not connected</p>
+  <div style="font-size:28px;line-height:1.8">
+    <div>Button: <span id="button">—</span></div>
+    <div>Encoder count: <span id="encoder">—</span></div>
+    <div>Joystick X: <span id="x">—</span></div>
+    <div>Joystick Y: <span id="y">—</span></div>
+    <div>Joystick button: <span id="pressed">—</span></div>
+  </div>
+
+  <script>
+    let socket;
+    const show = (id, value) => {
+      document.getElementById(id).textContent = value;
+    };
+
+    function clearValues() {
+      ["button", "encoder", "x", "y", "pressed"]
+        .forEach(id => show(id, "—"));
+    }
+
+    function connect() {
+      if (socket) socket.close();
+      clearValues();
+      show("status", "Connecting…");
+
+      const current = new WebSocket(
+        `ws://${document.getElementById("ip").value.trim()}:8765`
+      );
+      socket = current;
+
+      current.onopen = () => {
+        if (socket === current) show("status", "Connected");
+      };
+
+      current.onmessage = event => {
+        if (socket !== current) return;
+        const data = JSON.parse(event.data);
+        show("button", data.button ? "🟢 Pressed" : "⚪ Released");
+        show("encoder", data.encoder);
+        show("x", data.joystick.x);
+        show("y", data.joystick.y);
+        show("pressed", data.joystick.pressed ? "🟢 Pressed" : "⚪ Released");
+      };
+
+      current.onclose = () => {
+        if (socket !== current) return;
+        show("status", "Disconnected");
+        clearValues();
+      };
+
+      current.onerror = () => {
+        if (socket === current) show("status", "Connection error");
+      };
+    }
+  </script>
+</body>
+</html>
+
